@@ -1,0 +1,146 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0 auto;
+  padding: 0;
+  background: #191313;
+}
+
+.auth-page {
+  max-width: 1880px;
+  margin: 0 auto;
+  display: flex;
+  padding: 20px;
+  background: #856666;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginPassword {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 115px;
+  max-height: 400px;
+}
+
+.app {
+  max-width: 1880px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: #856666;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+
+.task-input {
+  max-width: 1800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .abbb {
+    max-width: 130px;
+    min-height: 70px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+    input {
+      max-height: 20px;
+      min-width: 120px;
+      flex: 1;
+      padding: 3px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  }
+
+  button {
+    margin: 10px;
+    padding: 10px 15px;
+    background: #006a02;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+  }
+}
+
+.search {
+  margin-top: 10px;
+}
+
+.code {
+  max-width: 200px;
+  margin: 10px;
+}
+
+.date {
+  max-width: 120px;
+  margin: 10px;
+}
+
+button:hover {
+  background: rgba(148, 188, 232, 0.64);
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+
+  &.completed span {
+    text-decoration: line-through;
+    color: #8a4b4b;
+  }
+}
+
+.filters {
+  button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    border: 1px solid #9f5454;
+    border-radius: 4px;
+    background: #fff;
+    cursor: pointer;
+
+    &.active {
+      background: #007bff;
+      color: #fff;
+    }
+  }
+}
+
+.header {
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 20px 0;
+  background: rgba(255, 0, 0, 0.37);
+  color: #fff;
+  border-radius: 8px 8px 0 0;
+
+  h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+}
