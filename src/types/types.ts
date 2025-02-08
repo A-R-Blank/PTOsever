@@ -15,8 +15,8 @@ export interface IProps {
     task: ITask;
     tasks: ITask[];
     setTasks: (tasks: ITask[]) => void;
-    role: string; // Пропс для роли пользователя
-    onUpdateData?: (updatedTask: ITask) => void; // Функция для уведомления об изменениях
+    role: string;
+    onUpdateData?: (updatedTask: ITask) => void;
 }
 
 export interface Props {
@@ -24,7 +24,7 @@ export interface Props {
     setTasks: React.Dispatch<React.SetStateAction<ITask[]>>;
     filter: string;
     setFilter: React.Dispatch<React.SetStateAction<string>>;
-    role: string; // Получаем роль
+    role: string;
 }
 
 

@@ -9,38 +9,38 @@ const HomePage = () => {
     const [filter, setFilter] = useState<string>('all');
     const [role, setRole] = useState<string>('');
 
-    // Получаем роль из localStorage при монтировании компонента
+
     useEffect(() => {
-        const userRole = localStorage.getItem('role'); // Загружаем роль из localStorage
+        const userRole = localStorage.getItem('role');
         if (userRole) {
-            setRole(userRole); // Устанавливаем роль
+            setRole(userRole);
         }
     }, []);
 
-    // Проверяем наличие сохраненных задач в localStorage при монтировании компонента
+
     useEffect(() => {
         const storedTasks = localStorage.getItem('tasks');
         if (storedTasks) {
             try {
-                setTasks(JSON.parse(storedTasks)); // Восстанавливаем состояние задач из localStorage
+                setTasks(JSON.parse(storedTasks));
             } catch (err) {
                 console.error("Ошибка парсинга задач из localStorage:", err);
             }
         }
     }, []);
 
-    // Сохраняем задачи в localStorage только при изменении массива задач
+
     useEffect(() => {
-        if (tasks.length > 0) { // Убедимся, что задачи существуют перед сохранением
+        if (tasks.length > 0) {
             localStorage.setItem('tasks', JSON.stringify(tasks));
         }
     }, [tasks]);
 
-    // Слушатель для отслеживания изменений в localStorage
+
     useEffect(() => {
         function handleLocalStorageChange(event: StorageEvent) {
             if (event.key === 'role') {
-                setRole(event.newValue || ''); // Обновляем состояние роли
+                setRole(event.newValue || '');
             }
         }
 
@@ -52,7 +52,7 @@ const HomePage = () => {
     }, []);
 
     const addTask = (task: ITask) => {
-        setTasks([...tasks, task]); // Добавляем новую задачу в список
+        setTasks([...tasks, task]);
     };
 
     return (

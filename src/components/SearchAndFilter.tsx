@@ -7,16 +7,14 @@ const SearchAndFilter: React.FC<Props> = ({
                                               setTasks,
                                               filter,
                                               setFilter,
-                                              role, // Используем роль
+                                              role,
                                           }) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredTasks, setFilteredTasks] = useState<ITask[]>([]);
 
-    // Эта функция обновляет отфильтрованные задачи каждый раз, когда меняются задачи, фильтр или поисковый запрос
     const updateFilteredTasks = useCallback(() => {
         let result = [...tasks];
 
-        // Применяем фильтр
         if (filter === 'completed') {
             result = result.filter((task) => task.completed);
         }
@@ -24,7 +22,6 @@ const SearchAndFilter: React.FC<Props> = ({
             result = result.filter((task) => !task.completed);
         }
 
-        // Выполняем поиск по отфильтрованным задачам
         if (searchTerm !== '') {
             result = result.filter((task) => {
                 return (
@@ -41,7 +38,6 @@ const SearchAndFilter: React.FC<Props> = ({
         setFilteredTasks(result);
     }, [tasks, searchTerm, filter]);
 
-    // Вызываем обновление отфильтрованных задач при изменении зависимостей
     useEffect(() => {
         updateFilteredTasks();
     }, [updateFilteredTasks]);
@@ -54,10 +50,9 @@ const SearchAndFilter: React.FC<Props> = ({
         setFilter(event.target.value);
     };
 
-    // Функция для обновления данных задачи
     const handleTaskUpdate = (updatedTask: ITask) => {
-        setTasks(tasks.map(task => task.id === updatedTask.id ? updatedTask : task)); // Обновляем задачи
-        updateFilteredTasks(); // Пересчитываем отфильтрованные задачи
+        setTasks(tasks.map(task => task.id === updatedTask.id ? updatedTask : task));
+        updateFilteredTasks();
     };
 
     return (
@@ -74,7 +69,6 @@ const SearchAndFilter: React.FC<Props> = ({
                 <option value="active">В работе</option>
             </select>
 
-            {/* Рендерим только отфильтрованные задачи */}
             {filteredTasks.length > 0 &&
                 filteredTasks.map((task) => (
                     <TaskItem
@@ -82,7 +76,7 @@ const SearchAndFilter: React.FC<Props> = ({
                         task={task}
                         tasks={tasks}
                         setTasks={setTasks}
-                        role={role} // Передаем роль в TaskItem
+                        role={role}
                         onUpdateData={handleTaskUpdate}
                     />
                 ))

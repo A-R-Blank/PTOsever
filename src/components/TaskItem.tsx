@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ITask, IProps } from '../types/types.ts';
-import '../styles/main.scss'; // Подключение стилей
+import '../styles/main.scss';
 
 
 const userRole = localStorage.getItem('role');
@@ -9,7 +9,7 @@ const TaskItem = ({ task, tasks, setTasks, onUpdateData }: IProps) => {
     const [isEditing, setIsEditing] = useState(false);
     const [editedTask, setEditedTask] = useState<ITask>({
         ...task,
-        dueDate: new Date(task.dueDate), // Убедитесь, что dueDate является объектом Date
+        dueDate: new Date(task.dueDate),
     });
 
     const toggleCompletion = () => {
@@ -48,7 +48,6 @@ const TaskItem = ({ task, tasks, setTasks, onUpdateData }: IProps) => {
 
     const handleFieldChange = (field: keyof ITask, value: any) => {
         if (field === 'dueDate') {
-            // Если изменяемое поле - дата, то конвертируем строку в объект Date
             setEditedTask({ ...editedTask, [field]: new Date(value) });
         } else {
             setEditedTask({ ...editedTask, [field]: value });
