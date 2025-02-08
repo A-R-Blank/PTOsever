@@ -20,7 +20,6 @@ const AuthPage = () => {
             localStorage.setItem('isLoggedIn', 'true');
             localStorage.setItem('role', user.role);
             navigate('/HomePage'); // Переход на главную страницу после успешной авторизации
-            window.location.reload(); // Обновление страницы
         }
     };
 
